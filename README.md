@@ -1,133 +1,74 @@
-# Quranic Ayat Interactive Exploration
+# Quranic Ayat Explorer
 
-An interactive web visualization tool that allows users to explore and search through verses (ayat) of the Holy Quran using a dynamic treemap visualization built with D3.js.
+![Quranic Visualization Demo](demo.png)
 
-![Placeholder for Project Screenshot](demo.png)
+A visual exploration tool for the Holy Quran using D3.js treemaps. This project lets you explore Quranic verses in an interactive and visually appealing way.
 
-## Features
+## Why I Built This
 
-- **Interactive Treemap Visualization**: Visual representation of Quranic verses organized by chapters (surahs)
-- **Notable Verses Highlighting**: Important verses are highlighted in gold for easy reference
-- **Real-time Search**: Dynamic search functionality to find specific verses by keywords
-- **Verse Details Panel**: Detailed view of selected verses with English translations
-- **Zoom Functionality**: Ability to zoom in/out of the visualization for better exploration
-- **Responsive Design**: Clean, modern interface that adapts to different screen sizes
+I wanted to create something that would let people see the entire Quran in a single, visually appealing view. I chose to use a treemap visualization because it's perfect for showing the hierarchical structure of the Quran - you can easily see how different Surahs (chapters) compare in size and explore individual verses within them.
 
-## Prerequisites
+Some key design choices I made:
+- Each Surah has its own color to create clear visual separation
+- Important verses are highlighted in gold for easy spotting
+- Added zoom/pan features when I realized smaller verses were hard to click
+- Included a search bar that greys out non-matching verses (try searching "love"!)
+- Side panel shows the full verse when you click on any section
 
-- Modern web browser (Chrome, Firefox, Safari, or Edge)
-- Local development server or web hosting environment
-- Internet connection (for loading D3.js from CDN)
+## Setup
 
-## Installation
-
-1. Clone the repository:
-```bash
-git clone [repository-url]
-cd quranic-visualization
+1. Clone this repo
+2. Make sure you have all these files:
 ```
-
-2. Ensure you have the required data file:
-- Place `TheQuranDataset.json` in your project root directory
-- The JSON file should contain the Quranic verses with their translations
-
-3. Set up the project:
-- No build process required
-- Can be served using any static file server
-
-## Project Structure
-
+index.html
+script.js
+TheQuranDataset.json
+quran.png
+smiling.png
 ```
-├── index.html          # Main HTML file
-├── script.js           # D3.js visualization code
-├── quran.png          # Favicon
-└── TheQuranDataset.json # Quranic verses dataset
-```
+3. Start a local server (I use Python's `python -m http.server 8000`)
+4. Open `localhost:8000` in your browser
 
-## Usage
+## How It Works
 
-1. Start a local server in the project directory:
-```bash
-# Using Python 3
-python -m http.server 8000
+- The treemap shows all verses of the Quran
+- Each rectangle represents a verse, grouped by chapter
+- Gold highlights = notable verses
+- Click any verse to see its details in the side panel
+- Use the search bar to filter verses by keyword
+- Scroll to zoom, drag to pan around
 
-# Using Node.js's http-server
-npx http-server
-```
+## Development Story
 
-2. Open your browser and navigate to:
-- `http://localhost:8000` (or appropriate port)
+This was a solo project that took several iterations to get right. The biggest challenge was actually finding usable data - I spent about an hour wrestling with a Kaggle dataset that used pipes instead of commas before finding a better one.
 
-3. Interact with the visualization:
-- Click on verses to view details
-- Use the search bar to find specific content
-- Zoom in/out using mouse wheel or touchpad gestures
+The development process went something like this:
 
-## Data Structure
+1. Data prep (~1 hour)
+   - First attempt with pipe-separated data failed
+   - Found and formatted a cleaner dataset
 
-The visualization expects a JSON file with the following structure:
-```json
-{
-  "name": "Quran",
-  "children": [
-    {
-      "name": "Surah Name",
-      "children": [
-        {
-          "surah_name_en": "Chapter Name",
-          "ayah_no_surah": "Verse Number",
-          "ayah_en": "English Translation",
-          "value": 1
-        }
-      ]
-    }
-  ]
-}
-```
+2. Basic visualization (~2 hours)
+   - Got D3.js treemap working
+   - Figured out how to map the data correctly
+   - Added verse plotting
 
-## Notable Verses
+3. Making it look good (~30 min)
+   - Added dark theme
+   - Styled search bar and panels
+   - Made sure everything was readable
 
-The visualization highlights several important verses in gold, including:
-- Ayat al-Kursi (The Cow, 255)
-- The last verses of Surah Al-Baqarah (The Cow, 285-286)
-- Al-Fatiha (The Opening)
-- The Four Quls (The Sincerity, The Dawn, The People)
-- Selected verses from other chapters
+4. Improvements (~1-2 hours)
+   - Added search functionality
+   - Fixed performance issues
+   - Converted CSV to JSON for faster loading
+   - Added zoom/pan for better interaction with small verses
+   - Made borders thinner for cleaner look
 
-## Technical Details
+The trickiest part was getting the data to play nice with the treemap. Once that was working, adding features like search was pretty straightforward.
 
-### Libraries Used
-- D3.js v7.x - For visualization and data handling
-- Pure JavaScript - For DOM manipulation and event handling
-- CSS3 - For styling and responsive design
+## Made With
 
-### Browser Support
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## License
-
-This project is open source and available under the MIT License.
-
-## Acknowledgments
-
-- Creator: Yusuf Morsi
-- The Holy Quran text and translations
-- D3.js visualization library and community
-- Contributors and supporters of Islamic educational tools
-
-## Contact
-
-For questions, suggestions, or issues, please open an issue in the repository or contact the maintainers.
+- D3.js v7
+- Vanilla JavaScript
+- A lot of trial and error with data formats
