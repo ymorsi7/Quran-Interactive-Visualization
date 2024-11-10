@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Interactive Visualization: The Holy Quran</title>
-  <link rel = 'icon' href = "quran.png" type = "image/x-icon">
+  <link rel="icon" href="quran.png" type="image/x-icon">
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <style>
     body {
@@ -30,16 +30,16 @@
       border-radius: 8px;
       padding: 5px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      width: 50%;
     }
     #search-bar {
-      width: 300px;
+      width: 100%;
       padding: 10px;
       font-size: 16px;
       color: #f0f0f0;
       background-color: transparent;
       border: none;
       outline: none;
-      margin-right: 10px;
     }
     #search-bar::placeholder {
       color: #bbb;
@@ -54,6 +54,7 @@
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.3s;
+      margin-left: -50px;
     }
     #search-button:hover {
       background-color: #005bb5;
@@ -98,7 +99,7 @@
   <p><b>Note: </b>Notable Verses highlighted in gold!</p>
   
   <div id="search-container">
-    <input id="search-bar" type="text" placeholder="Search for a keyword in the Quran(i.e., 'fire')" />
+    <input id="search-bar" type="text" placeholder="Search for a Quranic keyword (i.e., 'fire')" />
     <button id="search-button">🔍</button>
   </div>
   
