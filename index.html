@@ -22,6 +22,13 @@
       margin-top: 1em;
       text-align: center;
     }
+    #bismillah {
+      margin-top: 20px;
+      text-align: center;
+    }
+    #bismillah img {
+      width: 200px;
+    }
     #logo {
       position: absolute;
       top: 10px;
@@ -139,7 +146,6 @@
       margin-bottom: 20px;
       color: #fff;
     }
-
     a{
       color: #039900;
     }
@@ -151,7 +157,11 @@
     <div class="tooltip">YM - Home</div>
   </div>
 
-  <h1 style = "color: rgb(3, 174, 0);">Quranic Ayat Interactive Exploration</h1>
+  <div id="bismillah">
+    <img src="bismillah.png" alt="Bismillah">
+  </div>
+
+  <h1 style="color: rgb(3, 174, 0);">Quranic Ayat Interactive Exploration</h1>
   <p>Learn about different ayat and insights in the Holy Quran. Search by verse / keyword!</p>
   <p><b>Notable Verses highlighted in gold!</b></p>
   
@@ -168,9 +178,8 @@
     </div>
   </div>
 
-
   <section id="writeup">
-    <h2  style = "color: #03ac00;">About the Project</h2>
+    <h2 style="color: #03ac00;">About the Project</h2>
     <h3>Rationale for Design Decisions</h3>
     <p>I picked this visualiation so that users can have a cool and aesthetically-appealing way of seeing the entire Quran in one image. A treemap was implementd so that we could with ease see the hierarchy of the data (i.e. Surahs/Chapters by size). Every Surah has a color so that we have contrast with different ones, especially if they are next to each other in the treemap. We've also highlighted notable/meaningful verses in gold so the user can identify and click on it with ease. At the end, a zooming/pan functionality was implemented after realizing it was harder to click on individual Ayat/Verses in the smaller Surahs. Implementing that with the thinner borders was able to solve that issue. A search bar was also implememted so that the user can filter by keyword. For example, if they'd like to only see verses with the word 'love,' it will grey out all the Ayat in that treemap that don't have that word. We also get the full verse on a side-panel when a user clicks on one.</p>
 
@@ -178,7 +187,6 @@
     <p>Being the sole member of my team, I developed the whole site by myself.  Initially, it took a few minutes to just find a dataset and put it into my repository. The first dataset I found (which was on <a href = "https://www.kaggle.com/datasets/zusmani/the-holy-quran" target = "_blank">Kaggle</a>) had seperated the data by '|' rather than commas and also had some strange formatting issues so after spending about an hour trying to get something out of that data, I decided to find a new dataset (which was also on <a href = "https://www.kaggle.com/datasets/imrankhan197/the-quran-dataset" target = "_blank">Kaggle</a>). After finding a set easier to work with, I was able to quickly implement the D3.js treemap on my page (which took about an hour). However, after facing many issues in terms of extracting the data and being able to translate it, it took about another hour to figure out how to make the specific column values that I wanted to appear to be plotted. After figuring out how to plot, which also took about an hour, I was able to get the site to work well. I spent up to 30 minutes implementing nice CSS for the website to make it look nice. I then implemented the searching functionality, which was easy to implement and did not take that long to integrate, especially with the help of the internet. Finally, I had a working model. However, I had a couple issues; the site was slow to use, the borders were thick, and couldn't see what was going on in the smaller Surahs. To do this, I implemented zooming, thinner borders, and converted my CSV data into a JSON so that I would be able to quickly load the plot. All in all, what took the most time was being able to read and translate the data into the treemap. As soon as the treemap was properly working, everything else, including the search functionality was simple. </p>
 
   </section>
-
 
   <div class="footer">
     Created for DSC 209R | Interactive Visualization: The Holy Quran
